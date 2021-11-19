@@ -166,6 +166,8 @@ def flatten_data(data):
 
                 flat_data[split][label] = np.reshape(x, (len(x), N_PIXELS))
 
+    return flat_data
+
 
 
 
@@ -451,7 +453,7 @@ def tune_decision_tree(data):
     # Grid search parameters
     grids = [{
         'criterion': ['gini'],
-        'splitter': ['best', 'random'],
+        'splitter': ['random'],
         'class_weight': ['balanced'],
         'max_depth': max_depth,
     }]
@@ -512,7 +514,7 @@ def main():
 
 
     # Tune models
-    #tune_decision_tree(flat_data)
+    tune_decision_tree(flat_data)
     #tune_neural_network(flat_data)
 
 
